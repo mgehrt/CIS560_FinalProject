@@ -12,7 +12,14 @@ namespace CIS560_FinalProject.Models
         //MatchID is automatically setup as PK
         public int MatchID { get; set; }
 
-        //TODO: Do the forein keys for TournamentID, Team1ID, Team2ID, and LocationID
+        /*
+         * GOTO: https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application
+         * To read more about models in EF and the foreign key relationships
+         */
+        public int TournamentID { get; set; }
+        public int Team1ID { get; set; }
+        public int Team2ID { get; set; }
+        public int LocationID { get; set; }
 
 
         public int Round { get; set; }
@@ -27,5 +34,9 @@ namespace CIS560_FinalProject.Models
         public int Team1Score { get; set; }
 
         public int Team2Score { get; set; }
+
+        public virtual Team Team1 { get; set; }
+        public virtual Team Team2 { get; set; }
+        public virtual Location Location { get; set; }
     }
 }
