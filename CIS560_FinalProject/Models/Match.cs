@@ -17,10 +17,12 @@ namespace CIS560_FinalProject.Models
          * To read more about models in EF and the foreign key relationships
          */
         public int TournamentID { get; set; }
-        public int Team1ID { get; set; }
-        public int Team2ID { get; set; }
-        public int LocationID { get; set; }
 
+        public int Team1ID { get; set; }
+
+        public int Team2ID { get; set; }
+
+        public int LocationID { get; set; }
 
         public int Round { get; set; }
 
@@ -36,7 +38,9 @@ namespace CIS560_FinalProject.Models
         public int Team2Score { get; set; }
 
         public virtual Team Team1 { get; set; }
+
         public virtual Team Team2 { get; set; }
+
         public virtual Location Location { get; set; }
     }
 }
