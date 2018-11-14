@@ -8,8 +8,12 @@ namespace CIS560_FinalProject.Controllers
 {
     public class HomeController : Controller
     {
+
+        
+        [HttpGet]
         public ActionResult Index()
         {
+
             return View();
         }
 

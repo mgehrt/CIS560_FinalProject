@@ -29,7 +29,7 @@ namespace CIS560_FinalProject.Models
         public string Name { get; set; }
 
         //DataType.Date changes the Date from DateTime to just calendar date (then updated with the display line)
-        [DataType(DataType.Date)]
+        [DataType(DataType.DateTime)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime Date { get; set; }
 
