@@ -1,0 +1,36 @@
+﻿@model CIS560_FinalProject.Models.Tournament
+@{
+    ViewBag.Title = "EditTournament";
+}
+<div class="row">
+    <h5>Editing the @Model.Name Tournament</h5>
+</div>
+<hr />
+
+@using (Html.BeginForm("EditTournament", "Home", FormMethod.Post))
+{   
+    @Html.HiddenFor(model => model.TournamentID)
+
+    <div class="row">
+        @Html.LabelFor(model => model.Name)
+        @Html.EditorFor(model => model.Name)
+    </div>
+
+    <div class="row">
+        @Html.LabelFor(model => model.Sport)
+        @Html.EditorFor(model => model.Sport)
+    </div>
+
+    <div class="row">
+        @Html.LabelFor(model => model.StartDate)
+        @Html.EditorFor(model => model.StartDate, new { type = "date" })
+    </div>
+
+    <div class="row">
+        @Html.LabelFor(model => model.EndDate)
+        @Html.EditorFor(model => model.EndDate, new { type = "date" })
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Save Changes" />
+}
+

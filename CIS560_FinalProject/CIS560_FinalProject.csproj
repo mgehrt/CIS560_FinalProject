@@ -155,11 +155,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MatchController.cs" />
     <Compile Include="EF\TournamentContext.cs" />
     <Compile Include="EF\TournamentInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Match.cs" />
     <Compile Include="Models\Player.cs" />
@@ -206,9 +208,14 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\ViewMatch.cshtml" />
+    <Content Include="Views\Home\CreateTournament.cshtml" />
+    <Content Include="Views\Home\ViewTournament.cshtml" />
+    <Content Include="Views\Home\EditTournament.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Match\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

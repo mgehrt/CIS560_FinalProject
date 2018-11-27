@@ -1,0 +1,36 @@
+﻿@model CIS560_FinalProject.Models.Tournament
+@{
+    ViewBag.Title = "ViewTournament";
+}
+
+<div class="row">
+    <h5>Viewing the @Model.Name Tournament</h5>
+</div>
+
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Round</th>
+            <th scope="col">Score</th>
+            <th scope="col">Location</th>
+            <th></th>
+        </tr>
+    </thead>
+    @foreach (var item in Model.Matches)
+    {
+        <tr>
+            <td>@item.Round</td>
+            <td>@item.Team1Score - @item.Team2Score</td>
+            <td>@item.Location</td>
+            <td>
+                \
+                @Html.ActionLink("View", "ViewMatch", "MatchControlller", new { id = item.MatchID }, null) |
+                @Html.ActionLink("Edit", "EditMatch", "MatchControlller", new { id = item.MatchID }, null) |
+                @Html.ActionLink("Delete", "DeleteMatch", "MatchControlller", new { id = item.MatchID }, null)
+            </td>
+        </tr>
+    }
+    <tbody></tbody>
+</table>

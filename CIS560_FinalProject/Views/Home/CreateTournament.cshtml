@@ -1,0 +1,35 @@
+﻿@model CIS560_FinalProject.Models.Tournament
+@{
+    ViewBag.Title = "CreateTournament";
+}
+
+<div class="row">
+    <h5>Create a new Tournament</h5>
+</div>
+
+
+@using (Html.BeginForm("CreateTournament", "Home", FormMethod.Post))
+{
+
+    <div class="row">
+        @Html.LabelFor(model => model.Name)
+        @Html.EditorFor(model => model.Name)
+    </div>
+
+    <div class="row">
+        @Html.LabelFor(model => model.Sport)
+        @Html.EditorFor(model => model.Sport)
+    </div>
+
+    <div class="row">
+        @Html.LabelFor(model => model.StartDate)
+        @Html.EditorFor(model => model.StartDate, new { type = "date" } )
+    </div>
+
+    <div class="row">
+        @Html.LabelFor(model => model.EndDate)
+        @Html.EditorFor(model => model.EndDate,new { type = "date" })
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Create"/>
+}

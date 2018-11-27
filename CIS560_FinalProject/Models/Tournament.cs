@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CIS560_FinalProject.Models
 {
-    public class Tournament
+    public class Tournament 
     {
         //TournamentID is automatically setup as PK
         public int TournamentID { get; set; }

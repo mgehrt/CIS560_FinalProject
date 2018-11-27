@@ -13,6 +13,8 @@ namespace CIS560_FinalProject.EF
         }
 
         
+
+
         //Foreach of our classes we need a DbSet of type ClassName named the plural version of the class
         public DbSet<Tournament> Tournaments { get; set; }
         public DbSet<Player> Players { get; set; }

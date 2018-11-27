@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CIS560_FinalProject.Models
 {
@@ -17,8 +18,13 @@ namespace CIS560_FinalProject.Models
          * To read more about models in EF and the foreign key relationships
          */
         public int TournamentID { get; set; }
+
+     
         public int Team1ID { get; set; }
+
         public int Team2ID { get; set; }
+
+        
         public int LocationID { get; set; }
 
 
