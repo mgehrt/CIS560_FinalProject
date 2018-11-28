@@ -215,7 +215,12 @@
     <Content Include="Views\Home\CreateTournament.cshtml" />
     <Content Include="Views\Home\ViewTournament.cshtml" />
     <Content Include="Views\Home\EditTournament.cshtml" />
-    <Content Include="Views\Match\CreateMatch.cshtml" />
+    <Content Include="Views\Location\ViewLocation.cshtml" />
+    <Content Include="Views\Location\CreateLocation.cshtml" />
+    <Content Include="Views\Location\EditLocation.cshtml" />
+    <Content Include="Views\Location\ViewAllLocations.cshtml" />
+    <Content Include="Views\Player\ViewPlayer.cshtml" />
+    <Content Include="Views\Player\CreatePlayer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
