@@ -21,14 +21,7 @@ namespace CIS560_FinalProject.Controllers
 
         }
 
-       
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+        
 
         [HttpGet]
         public ActionResult CreateTournament()
@@ -47,6 +40,7 @@ namespace CIS560_FinalProject.Controllers
         [HttpGet]
         public ActionResult ViewTournament(int id)
         {
+          //  var list = db.Tournaments.SqlQuery(,)
             Tournament t = db.Tournaments.Where(m => m.TournamentID == id).FirstOrDefault();
             return View(t);
         }

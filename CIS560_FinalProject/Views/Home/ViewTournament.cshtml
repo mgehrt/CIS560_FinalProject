@@ -6,7 +6,7 @@
 <div class="row">
     <h5>Viewing the @Model.Name Tournament</h5>
 </div>
-
+@Html.ActionLink("Create new Matchup", "CreateMatchup", "Match", null, new { @class = "btn btn-primary" })
 <hr />
 
 <table class="table">
@@ -23,7 +23,7 @@
         <tr>
             <td>@item.Round</td>
             <td>@item.Team1Score - @item.Team2Score</td>
-            <td>@item.Location</td>
+            <td>@item.Location.Venue, @item.Location.StateProvince</td>
             <td>
                 \
                 @Html.ActionLink("View", "ViewMatch", "MatchControlller", new { id = item.MatchID }, null) |

@@ -3,87 +3,65 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CIS560_FinalProject.EF;
+using System.Data.Entity;
+using CIS560_FinalProject.Models;
 
 namespace CIS560_FinalProject.Controllers
 {
     public class MatchController : Controller
     {
+        public TournamentContext db = new TournamentContext();
         // GET: Match
-        public ActionResult Index()
+        public ActionResult Index(int id)
+        {
+            //needs to get replaced with sql
+            var matchup = db.Matches.Where(m => m.MatchID == id).FirstOrDefault();
+            return View("ViewMatch", matchup);
+        }
+        
+        public ActionResult CreateMatch()
         {
             return View();
         }
 
-        // GET: Match/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Match/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Match/Create
+        
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult CreateMatch(Match m)
         {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Create");
-            }
-            catch
-            {
-                return View();
-            }
+            db.Matches.Add(m);
+            db.SaveChanges();
+            return View("Index");
         }
 
         // GET: Match/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult EditMatch(int id)
         {
-            return View();
+            Match m = db.Matches.Where(t => t.MatchID == id).FirstOrDefault();
+            return View(m);
         }
 
         // POST: Match/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult EditMatch(Match m)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                db.Entry(m).State = EntityState.Modified;
+                db.SaveChanges();
+                RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Match/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
+            return View(m);
         }
 
         // POST: Match/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            Match m = db.Matches.Where(t => t.MatchID == id).FirstOrDefault();
+            db.Matches.Remove(m);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Match", null);
         }
     }
 }

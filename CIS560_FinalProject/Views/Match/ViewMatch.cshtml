@@ -1,0 +1,67 @@
+﻿@model IEnumerable<CIS560_FinalProject.Models.Match>
+@{
+    ViewBag.Title = "ViewMatch";
+}
+
+
+<hr />
+@if (Model.Count() > 0)
+{
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Home Team Name</th>
+                <th scope="col">Visiting Team Name</th>
+                <th scope="col">Score</th>
+                <th scope="col">Location</th>
+                <th scope="col">Round</th>
+                <th></th>
+            </tr>
+        </thead>
+
+
+
+        <!-- how to loop through each element in model-->
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Team1.Name @item.Team1.Mascot</td>
+                <td>@item.Team2.Name @item.Team2.Mascot</td>
+                <td>@item.Team1Score - @item.Team2Score</td>
+                <td>@item.Location.Venue in @item.Location.City, @item.Location.StateProvince</td>
+                <td>
+                    @Html.ActionLink("View", "ViewMatch", "Match", new { id = item.MatchID }, null) |
+                    @Html.ActionLink("Edit", "EditMatch", "Match", new { id = item.MatchID }, null) |
+                    @Html.ActionLink("Delete", "DeleteMatch", "Match", new { id = item.TournamentID }, null)
+                </td>
+            </tr>
+        }
+
+
+
+
+    </table>
+
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Home Team Name</th>
+                <th scope="col">Visiting Team Name</th>
+                <th scope="col">Score</th>
+                <th scope="col">Location</th>
+                <th scope="col">Round</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>No data!</tr>
+        </tbody>
+    </table>
+        }
+

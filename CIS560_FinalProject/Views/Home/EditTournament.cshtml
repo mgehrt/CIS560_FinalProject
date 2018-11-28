@@ -10,7 +10,7 @@
 @using (Html.BeginForm("EditTournament", "Home", FormMethod.Post))
 {   
     @Html.HiddenFor(model => model.TournamentID)
-
+     
     <div class="row">
         @Html.LabelFor(model => model.Name)
         @Html.EditorFor(model => model.Name)
@@ -19,6 +19,7 @@
     <div class="row">
         @Html.LabelFor(model => model.Sport)
         @Html.EditorFor(model => model.Sport)
+
     </div>
 
     <div class="row">
