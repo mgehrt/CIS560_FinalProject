@@ -1,0 +1,30 @@
+﻿@model CIS560_FinalProject.Models.Location
+@{
+    ViewBag.Title = "CreateLocation";
+}
+
+<div class="row">
+    <h5>Create a new venue</h5>
+</div>
+
+
+@using (Html.BeginForm("CreateLocation", "Location", FormMethod.Post))
+{
+
+    <div class="row">
+        @Html.LabelFor(model => model.Venue)
+        @Html.EditorFor(model => model.Venue)
+    </div>
+
+    <div class="row">
+        @Html.LabelFor(model => model.City)
+        @Html.EditorFor(model => model.City)
+    </div>
+
+    <div class="row">
+        @Html.LabelFor(model => model.StateProvince)
+        @Html.EditorFor(model => model.StateProvince)
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Create" />
+}

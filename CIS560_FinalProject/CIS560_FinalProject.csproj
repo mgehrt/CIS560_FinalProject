@@ -155,6 +155,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\MatchController.cs" />
     <Compile Include="EF\TournamentContext.cs" />
     <Compile Include="EF\TournamentInitializer.cs" />
@@ -212,6 +213,10 @@
     <Content Include="Views\Home\CreateTournament.cshtml" />
     <Content Include="Views\Home\ViewTournament.cshtml" />
     <Content Include="Views\Home\EditTournament.cshtml" />
+    <Content Include="Views\Location\ViewLocation.cshtml" />
+    <Content Include="Views\Location\CreateLocation.cshtml" />
+    <Content Include="Views\Location\EditLocation.cshtml" />
+    <Content Include="Views\Location\ViewAllLocations.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
