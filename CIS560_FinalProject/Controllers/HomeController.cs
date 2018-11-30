@@ -11,7 +11,7 @@ namespace CIS560_FinalProject.Controllers
 {
     public class HomeController : Controller
     {
-        public TournamentContext db = new TournamentContext();
+        
 
         public ActionResult Index()
         {
@@ -54,9 +54,9 @@ namespace CIS560_FinalProject.Controllers
         [HttpGet]
         public ActionResult ViewTournament(int id)
         {
-          //  var list = db.Tournaments.SqlQuery(,)
-            Tournament t = db.Tournaments.Where(m => m.TournamentID == id).FirstOrDefault();
-            return View(t);
+            TournamentDbHandle tdb = new TournamentDbHandle();
+            ViewBag.TournamentID = id;
+            return View(tdb.ViewTournament(id));
         }
 
         [HttpGet]
