@@ -1,12 +1,13 @@
-﻿@model CIS560_FinalProject.Models.Tournament
+﻿@model IEnumerable< CIS560_FinalProject.Models.Match>
 @{
     ViewBag.Title = "ViewTournament";
+    
 }
 
 <div class="row">
-    <h5>Viewing the @Model.Name Tournament</h5>
+    <h5>Viewing Matches</h5>
 </div>
-@Html.ActionLink("Create new Matchup", "CreateMatchup", "Match", null, new { @class = "btn btn-primary" })
+@Html.ActionLink("Create new Matchup", "CreateMatch", "Match", new { TournamentID = ViewBag.TournamentID }, new { @class = "btn btn-primary" })
 <hr />
 
 <table class="table">
@@ -18,7 +19,7 @@
             <th></th>
         </tr>
     </thead>
-    @foreach (var item in Model.Matches)
+    @foreach (var item in Model)
     {
         <tr>
             <td>@item.Round</td>

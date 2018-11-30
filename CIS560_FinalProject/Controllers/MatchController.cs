@@ -20,17 +20,24 @@ namespace CIS560_FinalProject.Controllers
             return View("ViewMatch", matchup);
         }
         
-        public ActionResult CreateMatch()
+        [HttpGet]
+        public ActionResult CreateMatch(int TournamentID)
         {
+            ViewBag.TournamentID = TournamentID;
             return View();
         }
-
         
         [HttpPost]
         public ActionResult CreateMatch(Match m)
         {
-            db.Matches.Add(m);
-            db.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                MatchDbHandler mdb = new MatchDbHandler();
+                if (mdb.AddMatch(m))
+                {
+                    return RedirectToAction("Index", "Match", null);
+                }
+            }
             return View("Index");
         }
 
