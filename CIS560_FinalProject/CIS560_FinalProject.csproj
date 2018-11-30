@@ -168,6 +168,7 @@
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Team.cs" />
     <Compile Include="Models\Tournament.cs" />
+    <Compile Include="Models\TournamentDbHandle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -209,18 +210,12 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\ViewMatch.cshtml" />
     <Content Include="Views\Home\CreateTournament.cshtml" />
     <Content Include="Views\Home\ViewTournament.cshtml" />
     <Content Include="Views\Home\EditTournament.cshtml" />
-    <Content Include="Views\Location\ViewLocation.cshtml" />
-    <Content Include="Views\Location\CreateLocation.cshtml" />
-    <Content Include="Views\Location\EditLocation.cshtml" />
-    <Content Include="Views\Location\ViewAllLocations.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Match\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
