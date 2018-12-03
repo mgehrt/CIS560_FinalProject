@@ -1,0 +1,40 @@
+﻿@model CIS560_FinalProject.Models.Match
+@{
+    ViewBag.Title = "CreateMatch";
+    Model.TournamentID = ViewBag.TournamentID;
+}
+
+<div class="row">
+    <h5>Create new Match </h5>
+</div>
+
+@using (Html.BeginForm("CreateMatch", "Match", FormMethod.Post))
+{
+    @Html.HiddenFor(model=>Model.TournamentID)
+    <div class="row">
+        @Html.LabelFor(model => model.Name)
+        @Html.EditorFor(model => model.Name)
+    </div>
+
+    <div class="row">
+        @Html.LabelFor(model => model.Round)
+        @Html.EditorFor(model => model.Round)
+    </div>
+
+    <div class="row">
+        @Html.LabelFor(model => model.Date)
+        @Html.EditorFor(model => model.Date)
+    </div>
+
+    <div class="row">
+        @Html.LabelFor(model => model.Team1Score)
+        @Html.EditorFor(model => model.Team1Score)
+    </div>
+    @Html.DropDownListFor(m)
+    <div class="row">
+        @Html.LabelFor(model => model.Team2Score)
+        @Html.EditorFor(model => model.Team2Score)
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Create" />
+}

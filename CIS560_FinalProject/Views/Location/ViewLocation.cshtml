@@ -1,0 +1,33 @@
+﻿@model CIS560_FinalProject.Models.Location
+@{
+    ViewBag.Title = "ViewLocation";
+}
+
+<div class="row">
+    <h5>Viewing the @Model.Venue venue</h5>
+</div>
+
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Venue Name</th>
+            <th scope="col">City</th>
+            <th scope="col">State/Province</th>
+            <th></th>
+        </tr>
+    </thead>
+    
+    <tr>
+        <td>@Model.Venue</td>
+        <td>@Model.City</td>
+        <td>@Model.StateProvince</td>
+        <td>
+            \
+            @Html.ActionLink("Edit", "EditLocation", "LocationController", new { id = Model.LocationID }, null)
+        </td>
+    </tr>
+    
+    <tbody></tbody>
+</table>
