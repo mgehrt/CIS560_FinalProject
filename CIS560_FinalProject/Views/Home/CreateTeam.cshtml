@@ -1,0 +1,28 @@
+﻿@model CIS560_FinalProject.Models.Team
+@{
+    ViewBag.Title = "CreateTournament";
+}
+
+<div class="row">
+    <h5>Create a new Team</h5>
+</div>
+
+
+@using (Html.BeginForm("CreateTeam", "Home", FormMethod.Post))
+{
+
+    <div class="row">
+        @Html.LabelFor(model => model.Name)
+        @Html.EditorFor(model => model.Name)
+    </div>
+    <div class="row">
+        @Html.LabelFor(model => model.LocationID)
+        @Html.EditorFor(model => model.LocationID)
+    </div>
+    <div class="row">
+        @Html.LabelFor(model => model.Mascot)
+        @Html.EditorFor(model => model.Mascot)
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Create" />
+}

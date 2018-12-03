@@ -52,6 +52,12 @@ namespace CIS560_FinalProject.Controllers
         }
 
         [HttpGet]
+        public ActionResult CreateTeam()
+        {
+            return View();
+        }
+
+        [HttpGet]
         public ActionResult ViewTournament(int id)
         {
             TournamentDbHandle tdb = new TournamentDbHandle();
