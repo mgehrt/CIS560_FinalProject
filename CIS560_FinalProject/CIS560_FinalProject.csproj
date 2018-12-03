@@ -176,6 +176,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\PlayerDbHandler.cs" />
     <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\LocationDbHandler.cs" />
     <Compile Include="Models\Match.cs" />
     <Compile Include="Models\MatchDbHandler.cs" />
     <Compile Include="Models\Player.cs" />
