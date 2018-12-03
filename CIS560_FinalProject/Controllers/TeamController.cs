@@ -17,36 +17,11 @@ namespace CIS560_FinalProject.Controllers
         // GET: Team
         public ActionResult Index()
         {
-            //would like to use sql instead of other stuff
-            string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            string queryString = "SELECT * FROM dbo.Tournaments";
-            using (SqlConnection cnn = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    cnn.Open();
-                    SqlCommand sqlCommand = new SqlCommand(queryString, cnn);
-                    using (SqlDataReader dataReader = sqlCommand.ExecuteReader())
-                    {
-                        var list = new List<Tournament>();
-                        while (dataReader.Read())
-                        {
-                            var name = dataReader["Name"];
-                            var sport = dataReader["Sport"];
-                            var id = dataReader["TournamentID"];
-                        }
-                    }
-                }
-                catch (Exception ee)
-                {
-
-                }
-
-                return View();
-            }
+            TeamDbHandler tdb = new TeamDbHandler();
+            return View(tdb.GetTeams());
         }
 
-        public ActionResult Create()
+        public ActionResult CreateTeam()
         {
             return View();
         }
