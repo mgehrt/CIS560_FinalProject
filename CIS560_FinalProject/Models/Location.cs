@@ -14,7 +14,7 @@ namespace CIS560_FinalProject.Models
 
         public string Venue { get; set; }
 
-        public string City { get; set; }4
+        public string City { get; set; }
 
         public string StateProvince { get; set; }
     }
