@@ -1,0 +1,36 @@
+﻿@model CIS560_FinalProject.Models.Player
+@{
+    ViewBag.Title = "EditPlayer";
+}
+
+<div class="row">
+    <h5>Edit a player</h5>
+</div>
+
+
+@using (Html.BeginForm("EditPlayer", "Player", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.PlayerID)
+
+    <div class="row">
+        @Html.LabelFor(model => model.FirstName)
+        @Html.EditorFor(model => model.FirstName)
+    </div>
+
+    <div class="row">
+        @Html.LabelFor(model => model.LastName)
+        @Html.EditorFor(model => model.LastName)
+    </div>
+
+    <div class="row">
+        @Html.LabelFor(model => model.Number)
+        @Html.EditorFor(model => model.Number)
+    </div>
+
+    <div class="row">
+        @Html.LabelFor(model => model.Team)
+        @Html.EditorFor(model => model.Team)
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Create" />
+}

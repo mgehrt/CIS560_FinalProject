@@ -1,0 +1,40 @@
+﻿@model CIS560_FinalProject.Models.Player
+@{
+    ViewBag.Title = "ViewAllPlayers";
+}
+
+<div class="row">
+    <h5>Viewing all players in the database</h5>
+</div>
+
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Number</th>
+            <th scope="col">Team</th>
+            <th></th>
+        </tr>
+    </thead>
+    @foreach (var item in Model.Player)
+    {
+
+    }
+    @foreach (var item in Model.Player)
+    {
+        <tr>
+            <td>@item.Player.FirstName + @item.Player.LastName</td>
+            <td>@item.Player.Number</td>
+            <td>@item.Player.Team</td>
+            <td>
+                \
+                @Html.ActionLink("View", "ViewPlayer", "PlayerController", new { id = item.PlayerID }, null) |
+                @Html.ActionLink("Edit", "EditPlayer", "PlayerController", new { id = item.PlayerID }, null) |
+                @Html.ActionLink("Delete", "DeletePlayer", "PlayerController", new { id = item.PlayerID }, null)
+            </td>
+        </tr>
+    }
+    <tbody></tbody>
+</table>
