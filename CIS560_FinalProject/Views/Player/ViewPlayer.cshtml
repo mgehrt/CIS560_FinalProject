@@ -1,0 +1,62 @@
+﻿@model IEnumerable<CIS560_FinalProject.Models.Player>
+@{
+    ViewBag.Title = "ViewPlayer";
+}
+
+<hr />
+@if (Model.Count() > 0)
+{
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Player's First Name</th>
+                <th scope="col">Player's Last Name</th>
+                <th scope="col">Player's Number</th>
+                <th scope="col">Player's Team</th>
+                <th></th>
+            </tr>
+        </thead>
+
+
+
+        <!-- how to loop through each element in model-->
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.TeamID.PlayerID.FirstName @item.TeamID.PlayerID.LastName</td>
+                <td>@item.PlayerID.Number</td>
+                <td>@item.TeamID</td>
+                <td>
+                    @Html.ActionLink("View", "ViewPlayer", "Player", new { id = item.PlayerID }, null) |
+                    @Html.ActionLink("Edit", "EditPlayer", "Player", new { id = item.PlayerID }, null) |
+                    @Html.ActionLink("Delete", "DeletPlayer", "Player", new { id = item.TeamID }, null)
+                </td>
+            </tr>
+        }
+
+
+
+
+    </table>
+
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Player's First Name</th>
+                <th scope="col">Player's Last Name</th>
+                <th scope="col">Player's Number</th>
+                <th scope="col">Player's Team</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>No data!</tr>
+        </tbody>
+    </table>
+}

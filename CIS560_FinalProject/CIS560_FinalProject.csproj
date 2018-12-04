@@ -217,6 +217,10 @@
     <Content Include="Views\Location\CreateLocation.cshtml" />
     <Content Include="Views\Location\EditLocation.cshtml" />
     <Content Include="Views\Location\ViewAllLocations.cshtml" />
+    <Content Include="Views\Player\ViewPlayer.cshtml" />
+    <Content Include="Views\Player\CreatePlayer.cshtml" />
+    <Content Include="Views\Player\EditPlayer.cshtml" />
+    <Content Include="Views\Player\ViewAllPlayers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
