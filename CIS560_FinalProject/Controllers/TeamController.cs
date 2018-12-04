@@ -25,7 +25,7 @@ namespace CIS560_FinalProject.Controllers
         {
             return View();
         }
-
+        
         public ActionResult ViewTeam(int id)
         {
             TeamDbHandler tbd = new TeamDbHandler();
