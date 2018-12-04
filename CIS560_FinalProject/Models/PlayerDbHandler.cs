@@ -87,7 +87,7 @@ namespace CIS560_FinalProject.Models
             Connection();
             List<Player> players = new List<Player>();
 
-            SqlCommand command = new SqlCommand("GetPlayer", con);
+            SqlCommand command = new SqlCommand("GetPlayers", con);
             command.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter sda = new SqlDataAdapter(command);
             DataTable dt = new DataTable();

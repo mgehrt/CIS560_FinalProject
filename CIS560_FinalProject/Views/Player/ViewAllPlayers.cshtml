@@ -1,4 +1,4 @@
-﻿@model CIS560_FinalProject.Models.Player
+﻿@model IEnumerable<CIS560_FinalProject.Models.Player>
 @{
     ViewBag.Title = "ViewAllPlayers";
 }
@@ -18,16 +18,12 @@
             <th></th>
         </tr>
     </thead>
-    @foreach (var item in Model.Player)
-    {
-
-    }
-    @foreach (var item in Model.Player)
+    @foreach (var item in Model)
     {
         <tr>
-            <td>@item.Player.FirstName + @item.Player.LastName</td>
-            <td>@item.Player.Number</td>
-            <td>@item.Player.Team</td>
+            <td>@item.FirstName @item.LastName</td>
+            <td>@item.Number</td>
+            <td>@item.Team</td>
             <td>
                 \
                 @Html.ActionLink("View", "ViewPlayer", "PlayerController", new { id = item.PlayerID }, null) |
