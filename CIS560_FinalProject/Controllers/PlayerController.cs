@@ -10,10 +10,10 @@ using CIS560_FinalProject.Models;
 
 namespace CIS560_FinalProject.Controllers
 {
-    public class PlayerController
+    public class PlayerController : Controller
     {
         [HttpGet]
-        public ActionResult CreateLocation()
+        public ActionResult CreatePlayer()
         {
             return View();
         }
