@@ -52,6 +52,12 @@ namespace CIS560_FinalProject.Controllers
         }
 
         [HttpGet]
+        public ActionResult ViewTeams()
+        {
+            return RedirectToAction("Index", "Team", null);
+        }
+
+        [HttpGet]
         public ActionResult ViewTournament(int id)
         {
             TournamentDbHandle tdb = new TournamentDbHandle();

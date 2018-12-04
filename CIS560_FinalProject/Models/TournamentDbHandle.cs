@@ -11,7 +11,7 @@ namespace CIS560_FinalProject.Models
         private SqlConnection con;
         private void Connection()
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["CIS560FinalProject"].ToString();
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TournamentContext;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             con = new SqlConnection(connectionString);
         }
 

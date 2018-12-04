@@ -15,7 +15,7 @@ namespace CIS560_FinalProject.Models
         public string Name { get; set; }
 
         public string Mascot { get; set; }
-
         public virtual ICollection<Player> Players { get; set; }
+        public virtual Location Location { get; set; }
     }
 }
