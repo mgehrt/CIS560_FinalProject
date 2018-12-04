@@ -26,6 +26,7 @@ namespace CIS560_FinalProject.Models
             command.Parameters.AddWithValue("@FirstName", p.FirstName);
             command.Parameters.AddWithValue("@LastName", p.LastName);
             command.Parameters.AddWithValue("@PlayerID", p.PlayerID);
+            command.Parameters.AddWithValue("@TeamID", p.TeamID);
             command.Parameters.AddWithValue("@Number", p.Number);
 
             con.Open();
@@ -47,6 +48,7 @@ namespace CIS560_FinalProject.Models
             command.Parameters.AddWithValue("@PlayerID", p.PlayerID);
             command.Parameters.AddWithValue("@FirstName", p.FirstName);
             command.Parameters.AddWithValue("@LastName", p.LastName);
+            command.Parameters.AddWithValue("@TeamID", p.TeamID);
             command.Parameters.AddWithValue("@Number", p.Number);
 
 
@@ -101,6 +103,7 @@ namespace CIS560_FinalProject.Models
                     new Player
                     {
                         PlayerID = Convert.ToInt32(dr["PlayerID"]),
+                        TeamID = Convert.ToInt32(dr["TeamID"]),
                         FirstName = Convert.ToString(dr["FirstName"]),
                         LastName = Convert.ToString(dr["LastName"]),
                         Number = Convert.ToInt32(dr["Number"])
@@ -131,6 +134,7 @@ namespace CIS560_FinalProject.Models
                    new Player
                    {
                        PlayerID = Convert.ToInt32(dr["PlayerID"]),
+                       TeamID = Convert.ToInt32(dr["TeamID"]),
                        FirstName = Convert.ToString(dr["FirstName"]),
                        LastName = Convert.ToString(dr["LastName"]),
                        Number = Convert.ToInt32(dr["Number"])
