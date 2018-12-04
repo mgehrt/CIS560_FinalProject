@@ -54,7 +54,7 @@ namespace CIS560_FinalProject.Controllers
         [HttpGet]
         public ActionResult CreateTeam()
         {
-            return View();
+            return RedirectToAction("CreateTeam", "Team", null);
         }
 
         [HttpGet]

@@ -239,7 +239,7 @@
     <Content Include="Views\Team\Index.cshtml" />
     <Content Include="Views\Match\CreateMatch.cshtml" />
     <Content Include="Views\Team\Index.cshtml" />
-    <Content Include="Views\Home\CreateTeam.cshtml" />
+    <Content Include="Views\Team\CreateTeam.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
