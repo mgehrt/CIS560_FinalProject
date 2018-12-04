@@ -61,7 +61,7 @@ namespace CIS560_FinalProject.Controllers
             if (ModelState.IsValid)
             {
                 PlayerDbHandler pdb = new PlayerDbHandler();
-                pdb.updatePlayer(P);
+                pdb.UpdatePlayer(P);
                 return RedirectToAction("Index");
             }
             return View(P);
@@ -70,7 +70,7 @@ namespace CIS560_FinalProject.Controllers
         public ActionResult DeleteLocation(int id)
         {
             PlayerDbHandler pdb = new PlayerDbHandler();
-            if (pdb.DeletPlayer(id))
+            if (pdb.DeletePlayer(id))
             {
                 return RedirectToAction("Index", "Home", null);
             }

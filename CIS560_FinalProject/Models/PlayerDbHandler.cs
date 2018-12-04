@@ -17,16 +17,16 @@ namespace CIS560_FinalProject.Models
         }
 
 
-        public bool AddPlayer(Team t)
+        public bool AddPlayer(Player p)
         {
             Connection();
             SqlCommand command = new SqlCommand("CreatePlayer", con);//Need a procedure for this
             command.CommandType = CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("@FirstName", t.FirstName);
-            command.Parameters.AddWithValue("@LastName", t.LastName);
-            command.Parameters.AddWithValue("@PlayerID", t.PlayerID);
-            command.Parameters.AddWithValue("@Number", t.Number);
+            command.Parameters.AddWithValue("@FirstName", p.FirstName);
+            command.Parameters.AddWithValue("@LastName", p.LastName);
+            command.Parameters.AddWithValue("@PlayerID", p.PlayerID);
+            command.Parameters.AddWithValue("@Number", p.Number);
 
             con.Open();
             int i = command.ExecuteNonQuery();
@@ -38,16 +38,16 @@ namespace CIS560_FinalProject.Models
                 return false;
         }
 
-        public bool UpdatePlayer(Team t)
+        public bool UpdatePlayer(Player p)
         {
             Connection();
             SqlCommand command = new SqlCommand("UpdatePlayer", con);
             command.CommandType = CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("@PlayerID", t.PlayerID);
-            command.Parameters.AddWithValue("@FirstName", t.FirstName);
-            cocommand.Parameters.AddWithValue("@LastName", t.LastName);
-            command.Parameters.AddWithValue("@Number", t.Number);
+            command.Parameters.AddWithValue("@PlayerID", p.PlayerID);
+            command.Parameters.AddWithValue("@FirstName", p.FirstName);
+            command.Parameters.AddWithValue("@LastName", p.LastName);
+            command.Parameters.AddWithValue("@Number", p.Number);
 
 
             con.Open();
