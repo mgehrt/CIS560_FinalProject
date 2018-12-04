@@ -52,9 +52,9 @@ namespace CIS560_FinalProject.Controllers
         }
 
         [HttpGet]
-        public ActionResult CreateTeam()
+        public ActionResult ViewTeams()
         {
-            return RedirectToAction("CreateTeam", "Team", null);
+            return RedirectToAction("Index", "Team", null);
         }
 
         [HttpGet]
