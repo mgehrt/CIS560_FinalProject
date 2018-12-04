@@ -11,13 +11,13 @@ namespace CIS560_FinalProject.Controllers
 {
     public class HomeController : Controller
     {
-        public TournamentContext db = new TournamentContext();
+        
 
         public ActionResult Index()
         {
-            var list = db.Tournaments.ToList();
+            TournamentDbHandle tdb = new TournamentDbHandle();
             
-            return View(list);
+            return View(tdb.GetTournaments());
 
         }
 
@@ -32,24 +32,38 @@ namespace CIS560_FinalProject.Controllers
         [HttpPost]
         public ActionResult CreateTournament(Tournament t)
         {
-            db.Tournaments.Add(t);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    TournamentDbHandle tdb = new TournamentDbHandle();
+                    if (tdb.AddTournament(t))
+                    {
+                        ViewBag.Message = "Tournament Created Correctly";
+                        ModelState.Clear();
+                    }
+                }
+                return RedirectToAction("Index", "Home", null);
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         [HttpGet]
         public ActionResult ViewTournament(int id)
         {
-          //  var list = db.Tournaments.SqlQuery(,)
-            Tournament t = db.Tournaments.Where(m => m.TournamentID == id).FirstOrDefault();
-            return View(t);
+            TournamentDbHandle tdb = new TournamentDbHandle();
+            ViewBag.TournamentID = id;
+            return View(tdb.ViewTournament(id));
         }
 
         [HttpGet]
         public ActionResult EditTournament(int id)
         {
-            Tournament t = db.Tournaments.Where(m => m.TournamentID == id).FirstOrDefault();
-            return View(t);
+            TournamentDbHandle tdb = new TournamentDbHandle();
+            return View(tdb.GetTournaments().Find(m => m.TournamentID == id));
         }
 
         [HttpPost]
@@ -57,8 +71,8 @@ namespace CIS560_FinalProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(t).State= EntityState.Modified;
-                db.SaveChanges();
+                TournamentDbHandle tdb = new TournamentDbHandle();
+                tdb.UpdateTournament(t);
                 return RedirectToAction("Index");
             }
             return View(t);
@@ -66,9 +80,11 @@ namespace CIS560_FinalProject.Controllers
 
         public ActionResult DeleteTournament(int id)
         {
-            Tournament t = db.Tournaments.Where(m => m.TournamentID == id).FirstOrDefault();
-            db.Tournaments.Remove(t);
-            db.SaveChanges();
+            TournamentDbHandle tdb = new TournamentDbHandle();
+            if (tdb.DeleteTournament(id))
+            {
+                return RedirectToAction("Index", "Home", null);
+            }
             return RedirectToAction("Index", "Home", null);
         }
     }

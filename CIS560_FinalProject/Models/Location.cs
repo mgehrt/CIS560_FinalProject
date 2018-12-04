@@ -9,7 +9,7 @@ namespace CIS560_FinalProject.Models
 {
     public class Location
     {
-        //LocationID is automatically setup as PK
+        
         public int LocationID { get; set; }
 
         public string Venue { get; set; }
