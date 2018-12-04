@@ -166,6 +166,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\MatchController.cs" />
+    <Compile Include="Controllers\PlayerController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
     <Compile Include="EF\TournamentContext.cs" />
     <Compile Include="EF\TournamentInitializer.cs" />
@@ -173,6 +174,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\PlayerDbHandler.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Match.cs" />
     <Compile Include="Models\MatchDbHandler.cs" />
