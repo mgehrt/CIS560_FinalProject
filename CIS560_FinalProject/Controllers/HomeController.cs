@@ -15,7 +15,7 @@ namespace CIS560_FinalProject.Controllers
 
         public ActionResult Index()
         {
-            TournamentDbHandle tdb = new TournamentDbHandle();
+            TournamentDbHandler tdb = new TournamentDbHandler();
             
             return View(tdb.GetTournaments());
 
@@ -36,7 +36,7 @@ namespace CIS560_FinalProject.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    TournamentDbHandle tdb = new TournamentDbHandle();
+                    TournamentDbHandler tdb = new TournamentDbHandler();
                     if (tdb.AddTournament(t))
                     {
                         ViewBag.Message = "Tournament Created Correctly";
@@ -60,7 +60,7 @@ namespace CIS560_FinalProject.Controllers
         [HttpGet]
         public ActionResult ViewTournament(int id)
         {
-            TournamentDbHandle tdb = new TournamentDbHandle();
+            TournamentDbHandler tdb = new TournamentDbHandler();
             ViewBag.TournamentID = id;
             return View(tdb.ViewTournament(id));
         }
@@ -68,7 +68,7 @@ namespace CIS560_FinalProject.Controllers
         [HttpGet]
         public ActionResult EditTournament(int id)
         {
-            TournamentDbHandle tdb = new TournamentDbHandle();
+            TournamentDbHandler tdb = new TournamentDbHandler();
             return View(tdb.GetTournaments().Find(m => m.TournamentID == id));
         }
 
@@ -77,7 +77,7 @@ namespace CIS560_FinalProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                TournamentDbHandle tdb = new TournamentDbHandle();
+                TournamentDbHandler tdb = new TournamentDbHandler();
                 tdb.UpdateTournament(t);
                 return RedirectToAction("Index");
             }
@@ -86,7 +86,7 @@ namespace CIS560_FinalProject.Controllers
 
         public ActionResult DeleteTournament(int id)
         {
-            TournamentDbHandle tdb = new TournamentDbHandle();
+            TournamentDbHandler tdb = new TournamentDbHandler();
             if (tdb.DeleteTournament(id))
             {
                 return RedirectToAction("Index", "Home", null);

@@ -15,7 +15,7 @@ namespace CIS560_FinalProject.Controllers
 
         //public ActionResult Index()
         //{
-        //    TournamentDbHandle tdb = new TournamentDbHandle();
+        //    TournamentDbHandler tdb = new TournamentDbHandler();
 
         //    return View(tdb.GetTournaments());
 

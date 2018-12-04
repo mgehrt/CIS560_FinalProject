@@ -6,7 +6,7 @@ using System.Configuration;
 
 namespace CIS560_FinalProject.Models
 {
-    public class TournamentDbHandle
+    public class TournamentDbHandler
     {
         private SqlConnection con;
         private void Connection()
