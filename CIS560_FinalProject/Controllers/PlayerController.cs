@@ -7,13 +7,6 @@ namespace CIS560_FinalProject.Controllers
 {
     public class PlayerController
     {
-        public PlayerContext db = new PlayerContext();
-        // GET: Location
-        public ActionResult Index()
-        {
-            return View();
-        }
-
         [HttpGet]
         public ActionResult CreateLocation()
         {
@@ -21,45 +14,62 @@ namespace CIS560_FinalProject.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateLocation(Location l)
+        public ActionResult CreatePlayer(Player P)
         {
-            db.Locations.Add(l);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    PlayerDbHandler pdb = new PlayerDbHandler();
+                    if (pdb.AddPlayer(P))
+                    {
+                        ViewBag.Message = "Player Created Correctly";
+                        ModelState.Clear();
+                    }
+                }
+                return RedirectToAction("Index", "Home", null);
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         [HttpGet]
         public ActionResult ViewPlayer(int id)
         {
-            Player l = db.Players.Where(m => m.PlayerID == id).FirstOrDefault();
-            return View(l);
+            PlayerDbHandler pdb = new PlayerDbHandler();
+            ViewBag.PlayerID = id;
+            return View(pdb.ViewPlayer(id));
         }
 
         [HttpGet]
         public ActionResult EditPlayer(int id)
         {
-            Player l = db.Players.Where(m => m.PlayerID == id).FirstOrDefault();
-            return View(l);
+            PlayerDbHandler pdb = new PlayerDbHandler();
+            return View(pdb.GetPlayers().Find(m => m.PlayerID == id));
         }
 
         [HttpPost]
-        public ActionResult EditPlayer(Location l)
+        public ActionResult EditPlayer(Player P)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(l).State = EntityState.Modified;
-                db.SaveChanges();
+                PlayerDbHandler pdb = new PlayerDbHandler();
+                pdb.updatePlayer(P);
                 return RedirectToAction("Index");
             }
-            return View(l);
+            return View(P);
         }
 
         public ActionResult DeleteLocation(int id)
         {
-            Player l = db.Players.Where(m => m.PlayerID == id).FirstOrDefault();
-            db.Player.Remove(l);
-            db.SaveChanges();
-            return RedirectToAction("Index", "Location", null);
+            PlayerDbHandler pdb = new PlayerDbHandler();
+            if (pdb.DeletPlayer(id))
+            {
+                return RedirectToAction("Index", "Home", null);
+            }
+            return RedirectToAction("Index", "Home", null);
         }
     }
 }

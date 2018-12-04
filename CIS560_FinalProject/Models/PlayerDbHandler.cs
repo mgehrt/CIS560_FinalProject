@@ -16,7 +16,7 @@ namespace CIS560_FinalProject.Models
         }
 
 
-        public bool AddTeam(Team t)
+        public bool AddPlayer(Team t)
         {
             Connection();
             SqlCommand command = new SqlCommand("CreatePlayer", con);//Need a procedure for this
@@ -37,7 +37,7 @@ namespace CIS560_FinalProject.Models
                 return false;
         }
 
-        public bool UpdateTeam(Team t)
+        public bool UpdatePlayer(Team t)
         {
             Connection();
             SqlCommand command = new SqlCommand("UpdatePlayer", con);
@@ -60,7 +60,7 @@ namespace CIS560_FinalProject.Models
         }
 
 
-        public bool DeleteTeam(int id)
+        public bool DeletePlayer(int id)
         {
             Connection();
             SqlCommand command = new SqlCommand("DeletePlayer", con);
@@ -79,10 +79,10 @@ namespace CIS560_FinalProject.Models
                 return false;
         }
 
-        public List<Team> GetTeams()
+        public List<Player> GetPlayers()
         {
             Connection();
-            List<Team> teams = new List<Team>();
+            List<Player> players = new List<Player>();
 
             SqlCommand command = new SqlCommand("GetPlayer", con);
             command.CommandType = CommandType.StoredProcedure;
@@ -96,8 +96,8 @@ namespace CIS560_FinalProject.Models
 
             foreach (DataRow dr in dt.Rows)
             {
-                teams.Add(
-                    new Team
+                players.Add(
+                    new Player
                     {
                         PlayerID = Convert.ToInt32(dr["PlayerID"]),
                         FirstName = Convert.ToString(dr["FirstName"]),
@@ -105,19 +105,19 @@ namespace CIS560_FinalProject.Models
                         Number = Convert.ToInt32(dr["Number"])
                     });
             }
-            return teams;
+            return players;
         }
 
-        /*public Team ViewTeam(int id)
+        public List<Player> ViewPlayer(int id)
         {
             Connection();
-            List<Match> Matches = new List<Match>();
-            SqlCommand command = new SqlCommand("ViewTeam", con);
+            List<Player> Players = new List<Player>();
+            SqlCommand command = new SqlCommand("ViewPlayer", con);
             command.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter sda = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
 
-            command.Parameters.AddWithValue("@TournamentID", id);
+            command.Parameters.AddWithValue("@PlayerID", id);
 
             con.Open();
             sda.Fill(dt);
@@ -126,22 +126,16 @@ namespace CIS560_FinalProject.Models
 
             foreach (DataRow dr in dt.Rows)
             {
-                Matches.Add(
-                   new Match
+                Players.Add(
+                   new Player
                    {
-                       MatchID = Convert.ToInt32(dr["@MatchID"]),
-                       TournamentID = Convert.ToInt32(dr["@TournamentID"]),
-                       Team1ID = Convert.ToInt32(dr["@Team1ID"]),
-                       Team2ID = Convert.ToInt32(dr["@Team2ID"]),
-                       LocationID = Convert.ToInt32(dr["@LocationID"]),
-                       Round = Convert.ToInt32(dr["@Round"]),
-                       Name = Convert.ToString(dr["@Name"]),
-                       Date = Convert.ToDateTime(dr["@Date"]),
-                       Team1Score = Convert.ToInt32(dr["@Team1Score"]),
-                       Team2Score = Convert.ToInt32(dr["@Team2Score"])
+                       PlayerID = Convert.ToInt32(dr["PlayerID"]),
+                       FirstName = Convert.ToString(dr["FirstName"]),
+                       LastName = Convert.ToString(dr["LastName"]),
+                       Number = Convert.ToInt32(dr["Number"])
                    });
             }
-            return Matches;
-        }*/
+            return Players;
+        }
     }
 }
