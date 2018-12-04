@@ -1,4 +1,5 @@
-﻿INSERT INTO dbo.Tournaments(Sport, [Name], StartDate, EndDate)
+﻿-- Insert Tournaments
+INSERT INTO dbo.Tournaments(Sport, [Name], StartDate, EndDate)
 VALUES
 	(N'Basketball', N'NCAA Division I Mens Basketball Tournament', '2018-03-13', '2018-04-02'),
 	(N'Basketball', N'2017 Big 12 Mens Basketball Tournament','2019-03-08','2019-03-16'),
@@ -151,13 +152,13 @@ SELECT Tourn.TournamentID, TeamO.TeamID, TeamT.TeamID, L.LocationID, T.[Round], 
 FROM
 (
 	VALUES
-		(N'Paradise Jam', N'Oregon State University', N'Old Dominion University', N'Sports and Fitness Center', N'Quarter-final', '2018-11-16', 61, 56),
-		(N'Paradise Jam', N'Kennesaw State University', N'University of Missouri', N'Sports and Fitness Center', N'Quarter-final', '2018-11-16', 52, 55),
-		(N'Paradise Jam', N'University of Northern Iowa', N'University of Pennsylvania', N'Sports and Fitness Center', N'Quarter-final', '2018-11-16', 71, 78),
-		(N'Paradise Jam', N'Eastern Kentucky University', N'Kansas State University', N'Sports and Fitness Center', N'Quarter-final', '2018-11-16', 68, 95),
-		(N'Paradise Jam', N'Oregon State University', N'University of Missouri', N'Sports and Fitness Center', N'Semi-final', '2018-11-18', 63, 69),
-		(N'Paradise Jam', N'University of Pennsylvania', N'Kansas State University', N'Sports and Fitness Center', N'Semi-final', '2018-11-18', 48, 64),
-		(N'Paradise Jam', N'University of Missouri', N'Kansas State University', N'Sports and Fitness Center', N'Final', '2018-01-01', 67, 82)
+		(N'U.S. Virgin Islands Paradise Jam', N'Oregon State University', N'Old Dominion University', N'Sports and Fitness Center', N'Quarter-final', '2018-11-16', 61, 56),
+		(N'U.S. Virgin Islands Paradise Jam', N'Kennesaw State University', N'University of Missouri', N'Sports and Fitness Center', N'Quarter-final', '2018-11-16', 52, 55),
+		(N'U.S. Virgin Islands Paradise Jam', N'University of Northern Iowa', N'University of Pennsylvania', N'Sports and Fitness Center', N'Quarter-final', '2018-11-16', 71, 78),
+		(N'U.S. Virgin Islands Paradise Jam', N'Eastern Kentucky University', N'Kansas State University', N'Sports and Fitness Center', N'Quarter-final', '2018-11-16', 68, 95),
+		(N'U.S. Virgin Islands Paradise Jam', N'Oregon State University', N'University of Missouri', N'Sports and Fitness Center', N'Semi-final', '2018-11-18', 63, 69),
+		(N'U.S. Virgin Islands Paradise Jam', N'University of Pennsylvania', N'Kansas State University', N'Sports and Fitness Center', N'Semi-final', '2018-11-18', 48, 64),
+		(N'U.S. Virgin Islands Paradise Jam', N'University of Missouri', N'Kansas State University', N'Sports and Fitness Center', N'Final', '2018-01-01', 67, 82)
 ) T(TournamentName, Team1, Team2, Venue, [Round], [Date], Team1Score, Team2Score)
 	LEFT JOIN dbo.Tournaments Tourn ON Tourn.Name = T.TournamentName
 	LEFT JOIN dbo.Teams TeamO ON T.Team1 = TeamO.Name
