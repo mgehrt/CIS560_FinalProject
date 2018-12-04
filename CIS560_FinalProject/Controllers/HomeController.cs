@@ -60,8 +60,11 @@ namespace CIS560_FinalProject.Controllers
         [HttpGet]
         public ActionResult ViewTournament(int id)
         {
+
             TournamentDbHandler tdb = new TournamentDbHandler();
             ViewBag.TournamentID = id;
+            List<Match> matches = tdb.ViewTournament(id);
+            
             return View(tdb.ViewTournament(id));
         }
 

@@ -15,23 +15,24 @@
         <tr>
             <th scope="col">Round</th>
             <th scope="col">Score</th>
-            <th scope="col">Location</th>
+            <th scope="col">Home</th>
+            <th scopre="col">Away</th>
             <th></th>
         </tr>
     </thead>
     @foreach (var item in Model)
     {
-        <tr>
-            <td>@item.Round</td>
-            <td>@item.Team1Score - @item.Team2Score</td>
-            <td>@item.Location.Venue, @item.Location.StateProvince</td>
-            <td>
-                \
-                @Html.ActionLink("View", "ViewMatch", "MatchControlller", new { id = item.MatchID }, null) |
-                @Html.ActionLink("Edit", "EditMatch", "MatchControlller", new { id = item.MatchID }, null) |
-                @Html.ActionLink("Delete", "DeleteMatch", "MatchControlller", new { id = item.MatchID }, null)
-            </td>
-        </tr>
+    <tr>
+        <td>@item.Round</td>
+        <td>@item</td>
+        <td>@item.Team1Score - @item.Team2Score</td>
+        <td>
+            
+            @Html.ActionLink("View", "ViewMatch", "MatchControlller", new { id = item.MatchID }, null) |
+            @Html.ActionLink("Edit", "EditMatch", "MatchControlller", new { id = item.MatchID }, null) |
+            @Html.ActionLink("Delete", "DeleteMatch", "MatchControlller", new { id = item.MatchID }, null)
+        </td>
+    </tr>
     }
     <tbody></tbody>
 </table>
