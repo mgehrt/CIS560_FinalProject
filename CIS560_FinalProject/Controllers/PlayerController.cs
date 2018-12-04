@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
+using CIS560_FinalProject.EF;
+using System.Data.Entity;
+using CIS560_FinalProject.Models;
+
 
 namespace CIS560_FinalProject.Controllers
 {
