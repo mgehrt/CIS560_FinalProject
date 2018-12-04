@@ -26,6 +26,11 @@ namespace CIS560_FinalProject.Controllers
             return View();
         }
 
+        public ActionResult ViewTeam()
+        {
+            PlayerDbHandler pdb = new PlayerDbHandler();
+            return View(pdb.GetPlayers());
+        }
 
     }
 }

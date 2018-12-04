@@ -17,5 +17,18 @@ namespace CIS560_FinalProject.Models
         public string City { get; set; }
 
         public string StateProvince { get; set; }
+
+        public Location(int LocationID, string Venue, string City, string StateProvince)
+        {
+            this.LocationID = LocationID;
+            this.Venue = Venue;
+            this.City = City;
+            this.StateProvince = StateProvince;
+        }
+
+        public Location()
+        {
+
+        }
     }
 }
