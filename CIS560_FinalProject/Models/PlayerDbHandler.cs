@@ -138,7 +138,6 @@ namespace CIS560_FinalProject.Models
                        FirstName = Convert.ToString(dr["FirstName"]),
                        LastName = Convert.ToString(dr["LastName"]),
                        Number = Convert.ToInt32(dr["Number"]),
-                       Team = Convert.ToString(dr["Team"]),
                    };
             }
             return Player;
