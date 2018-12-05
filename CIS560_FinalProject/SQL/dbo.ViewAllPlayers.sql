@@ -1,0 +1,4 @@
+﻿CREATE PROCEDURE [dbo].[ViewAllPlayers]
+AS
+	SELECT * FROM Players
+RETURN 0
