@@ -58,6 +58,12 @@ namespace CIS560_FinalProject.Controllers
         }
 
         [HttpGet]
+        public ActionResult ViewPlayers()
+        {
+            return RedirectToAction("ViewAllPlayers", "Player", null);
+        }
+
+        [HttpGet]
         public ActionResult ViewTournament(int id)
         {
 
