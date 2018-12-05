@@ -18,14 +18,14 @@ namespace CIS560_FinalProject.Models
         public virtual ICollection<Player> Players { get; set; }
         public virtual Location Location { get; set; }
 
-        public Team (int teamID, int locationID, string name, string mascot, ICollection<Player> players, Location location)
+        /*public Team (int teamID, int locationID, string name, string mascot, ICollection<Player> players, Location location)
         {
-            TeamID = TeamID;
+            TeamID = teamID;
             LocationID = locationID;
             Name = name;
             Mascot = mascot;
             Players = players;
             Location = location;
-        }
+        }*/
     }
 }
