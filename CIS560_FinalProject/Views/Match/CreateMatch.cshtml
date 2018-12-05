@@ -10,7 +10,7 @@
 
 @using (Html.BeginForm("CreateMatch", "Match", FormMethod.Post))
 {
-    @Html.HiddenFor(model=>Model.TournamentID)
+   
     <div class="row">
         @Html.LabelFor(model => model.Name)
         @Html.EditorFor(model => model.Name)
@@ -30,11 +30,7 @@
         @Html.LabelFor(model => model.Team1Score)
         @Html.EditorFor(model => model.Team1Score)
     </div>
-<<<<<<< HEAD
-    
-=======
-    @Html.DropDownListFor(m)
->>>>>>> Match work
+
     <div class="row">
         @Html.LabelFor(model => model.Team2Score)
         @Html.EditorFor(model => model.Team2Score)

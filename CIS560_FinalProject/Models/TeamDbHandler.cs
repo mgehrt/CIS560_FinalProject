@@ -98,7 +98,7 @@ namespace CIS560_FinalProject.Models
             {
                 
                 teams.Add(
-                    new Team
+                    new Team 
                     {
                         TeamID = Convert.ToInt32(dr["TeamID"]),
                         Name = Convert.ToString(dr["Name"]),

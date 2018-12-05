@@ -131,16 +131,16 @@ namespace CIS560_FinalProject.Models
                 Matches.Add(
                    new Match
                    {
-                       MatchID = Convert.ToInt32(dr["@MatchID"]),
-                       TournamentID = Convert.ToInt32(dr["@TournamentID"]),
-                       Team1ID = Convert.ToInt32(dr["@Team1ID"]),
-                       Team2ID = Convert.ToInt32(dr["@Team2ID"]),
-                       LocationID = Convert.ToInt32(dr["@LocationID"]),
-                       Round = Convert.ToInt32(dr["@Round"]),
-                       Name = Convert.ToString(dr["@Name"]),
-                       Date = Convert.ToDateTime(dr["@Date"]),
-                       Team1Score = Convert.ToInt32(dr["@Team1Score"]),
-                       Team2Score = Convert.ToInt32(dr["@Team2Score"])
+                       MatchID = Convert.ToInt32(dr["MatchID"]),
+                       TournamentID = Convert.ToInt32(dr["TournamentID"]),
+                       Team1ID = Convert.ToInt32(dr["Team1ID"]),
+                       Team2ID = Convert.ToInt32(dr["Team2ID"]),
+                       LocationID = Convert.ToInt32(dr["LocationID"]),
+                       Round = Convert.ToString(dr["Round"]),
+                       Name = Convert.ToString(dr["Name"]),
+                       Date = Convert.ToDateTime(dr["Date"]),
+                       Team1Score = Convert.ToInt32(dr["Team1Score"]),
+                       Team2Score = Convert.ToInt32(dr["Team2Score"]),
                    });
             }
             return Matches;

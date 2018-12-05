@@ -28,7 +28,7 @@ namespace CIS560_FinalProject.Models
         public int LocationID { get; set; }
 
 
-        public int Round { get; set; }
+        public string Round { get; set; }
 
         public string Name { get; set; }
 
