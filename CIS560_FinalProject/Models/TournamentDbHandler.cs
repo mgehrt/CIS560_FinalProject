@@ -141,7 +141,6 @@ namespace CIS560_FinalProject.Models
                        Date = Convert.ToDateTime(dr["Date"]),
                        Team1Score = Convert.ToInt32(dr["Team1Score"]),
                        Team2Score = Convert.ToInt32(dr["Team2Score"]),
-                       
                    });
             }
             return Matches;

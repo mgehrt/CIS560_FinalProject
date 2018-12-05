@@ -44,7 +44,6 @@ namespace CIS560_FinalProject.Controllers
         public ActionResult ViewPlayer(int id)
         {
             PlayerDbHandler pdb = new PlayerDbHandler();
-            ViewBag.PlayerID = id;
             return View(pdb.ViewPlayer(id));
         }
 
