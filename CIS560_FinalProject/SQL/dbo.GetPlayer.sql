@@ -1,0 +1,4 @@
+﻿CREATE PROCEDURE [dbo].GetPlayer
+AS
+	SELECT * FROM Players
+RETURN 0

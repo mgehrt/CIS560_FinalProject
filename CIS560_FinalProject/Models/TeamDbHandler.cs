@@ -96,28 +96,31 @@ namespace CIS560_FinalProject.Models
 
             foreach (DataRow dr in dt.Rows)
             {
+                
                 teams.Add(
                     new Team
                     {
                         TeamID = Convert.ToInt32(dr["TeamID"]),
                         Name = Convert.ToString(dr["Name"]),
                         LocationID = Convert.ToInt32(dr["LocationID"]),
-                        Mascot = Convert.ToString(dr["Mascot"])
+                        Mascot = Convert.ToString(dr["Mascot"]),
+                        Location = new Location(Convert.ToInt32(dr["LocationID"]), Convert.ToString(dr["Venue"]), Convert.ToString(dr["City"]), Convert.ToString(dr["StateProvince"]))
+                        
                     });
             }
             return teams;
         }
 
-        /*public Team ViewTeam(int id)
+        public List<Player> ViewTeam(int id)
         {
             Connection();
-            List<Match> Matches = new List<Match>();
+            List<Player> Players = new List<Player>();
             SqlCommand command = new SqlCommand("ViewTeam", con);
             command.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter sda = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
 
-            command.Parameters.AddWithValue("@TournamentID", id);
+            command.Parameters.AddWithValue("@TeamID", id);
 
             con.Open();
             sda.Fill(dt);
@@ -126,22 +129,16 @@ namespace CIS560_FinalProject.Models
 
             foreach (DataRow dr in dt.Rows)
             {
-                Matches.Add(
-                   new Match
+                Players.Add(
+                   new Player
                    {
-                       MatchID = Convert.ToInt32(dr["@MatchID"]),
-                       TournamentID = Convert.ToInt32(dr["@TournamentID"]),
-                       Team1ID = Convert.ToInt32(dr["@Team1ID"]),
-                       Team2ID = Convert.ToInt32(dr["@Team2ID"]),
-                       LocationID = Convert.ToInt32(dr["@LocationID"]),
-                       Round = Convert.ToInt32(dr["@Round"]),
-                       Name = Convert.ToString(dr["@Name"]),
-                       Date = Convert.ToDateTime(dr["@Date"]),
-                       Team1Score = Convert.ToInt32(dr["@Team1Score"]),
-                       Team2Score = Convert.ToInt32(dr["@Team2Score"])
+                       FirstName = Convert.ToString(dr["FirstName"]),
+                       LastName = Convert.ToString(dr["LastName"]),
+                       Number = Convert.ToInt32(dr["Number"]),
+                       TeamID = Convert.ToInt32(dr["TeamID"])
                    });
             }
-            return Matches;
-        }*/
+            return Players;
+        }
     }
 }

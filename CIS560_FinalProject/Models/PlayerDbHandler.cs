@@ -87,7 +87,7 @@ namespace CIS560_FinalProject.Models
             Connection();
             List<Player> players = new List<Player>();
 
-            SqlCommand command = new SqlCommand("GetPlayer", con);
+            SqlCommand command = new SqlCommand("GetPlayers", con);
             command.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter sda = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
@@ -106,7 +106,8 @@ namespace CIS560_FinalProject.Models
                         TeamID = Convert.ToInt32(dr["TeamID"]),
                         FirstName = Convert.ToString(dr["FirstName"]),
                         LastName = Convert.ToString(dr["LastName"]),
-                        Number = Convert.ToInt32(dr["Number"])
+                        Number = Convert.ToInt32(dr["Number"]),
+                        Team = Convert.ToString(dr["Team"])
                     });
             }
             return players;

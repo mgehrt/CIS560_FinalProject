@@ -55,6 +55,13 @@ namespace CIS560_FinalProject.Controllers
             return View(pdb.GetPlayers().Find(m => m.PlayerID == id));
         }
 
+        [HttpGet]
+        public ActionResult ViewAllPlayers()
+        {
+            PlayerDbHandler pdb = new PlayerDbHandler();
+            return View(pdb.GetPlayers());
+        }
+
         [HttpPost]
         public ActionResult EditPlayer(Player P)
         {

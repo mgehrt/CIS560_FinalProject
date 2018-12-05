@@ -1,9 +1,8 @@
-﻿
+﻿@model IEnumerable<CIS560_FinalProject.Models.Team>
 @{
     ViewBag.Title = "Team Page";
 }
-
-<div id="top-menu-container" class="row">
+<div id="top-menu-container" class="row" >
     @Html.ActionLink("Add new Team", "CreateTeam", "Team", null, new { @class = "btn btn-primary" })
 </div>
 <hr />
@@ -15,7 +14,9 @@
         <thead>
             <tr>
                 <th scope="col">Team Name</th>
-                <th scope="col">Location</th>
+                <th scope="col">Venue</th>
+                <th scope="col">City</th>
+                <th scope="col">State/Province</th>
                 <th scope="col">Mascot</th>
                 <th></th>
             </tr>
@@ -26,16 +27,18 @@
         <!-- how to loop through each element in model-->
         @foreach (var item in Model)
         {
-            <tr>
-                <td>@item.Name</td>
-                <td>@item.LocationID</td>
-                <td>@item.Mascot</td>
-                <td>
-                    @Html.ActionLink("View", "ViewTeam", "Team", new { id = item.TeamID }, null) |
-                    @Html.ActionLink("Edit", "EditTeam", "Team", new { id = item.TeamID }, null) |
-                    @Html.ActionLink("Delete", "DeleteTeam", "Team", new { id = item.TeamID }, null)
-                </td>
-            </tr>
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Location.Venue</td>
+            <td>@item.Location.City</td>
+            <td>@item.Location.StateProvince</td>
+            <td>@item.Mascot</td>
+            <td>
+                @Html.ActionLink("View", "ViewTeam", "Team", new { id = item.TeamID }, null) |
+                @Html.ActionLink("Edit", "EditTeam", "Team", new { id = item.TeamID }, null) |
+                @Html.ActionLink("Delete", "DeleteTeam", "Team", new { id = item.TeamID }, null)
+            </td>
+        </tr>
         }
 
 
