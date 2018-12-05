@@ -25,8 +25,7 @@ namespace CIS560_FinalProject.Models
 
             command.Parameters.AddWithValue("@FirstName", p.FirstName);
             command.Parameters.AddWithValue("@LastName", p.LastName);
-            command.Parameters.AddWithValue("@PlayerID", p.PlayerID);
-            command.Parameters.AddWithValue("@TeamID", p.TeamID);
+            command.Parameters.AddWithValue("@TeamName", p.Team);
             command.Parameters.AddWithValue("@Number", p.Number);
 
             con.Open();
