@@ -40,5 +40,13 @@ namespace CIS560_FinalProject.Models
             else
                 return false;
         }
+
+        //public bool ViewMatch(int id)
+        //{
+        //    Connection();
+        //    SqlCommand command = new SqlCommand("ViewMatch", con);
+        //    command.CommandType = CommandType.StoredProcedure;
+
+        //}
     }
 }

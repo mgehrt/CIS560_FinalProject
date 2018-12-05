@@ -9,8 +9,17 @@
 
 <div id="top-menu-container" class="row">
     @Html.ActionLink("Add new Tournament", "CreateTournament", "Home", null, new { @class = "btn btn-primary" })
-    @Html.ActionLink("Teams", "ViewTeams", "Home", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Teams", "ViewTeams", "Team", null, new { @class = "btn btn-primary" })
     @Html.ActionLink("Players", "ViewPlayers", "Home", null, new { @class = "btn btn-primary" })
+</div>
+
+<div class="row">
+    <h5 class="h5">Search for a player</h5>
+    @Html.BeginForm("SearchPlayer", "SearchPlayer", FormMethod.Post)
+    {
+        <input type="search" />
+        <input type="submit" value="Search" />
+    }
 </div>
 <hr />
 @if (Model.Count() > 0)

@@ -143,5 +143,23 @@ namespace CIS560_FinalProject.Models
             }
             return Players;
         }
+
+        public int SeachPlayer(string text)
+        {
+            Connection();
+
+            Connection();
+            SqlCommand command = new SqlCommand("SearchPlayer", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@SearchString", text);
+            SqlDataAdapter sda = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+
+            con.Open();
+            int i = command.ExecuteNonQuery();
+            con.Close();
+
+            return i;
+        }
     }
 }

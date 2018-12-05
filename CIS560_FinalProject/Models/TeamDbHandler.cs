@@ -99,14 +99,13 @@ namespace CIS560_FinalProject.Models
                 
                 teams.Add(
                     new Team 
-                    {
-                        TeamID = Convert.ToInt32(dr["TeamID"]),
-                        Name = Convert.ToString(dr["Name"]),
-                        LocationID = Convert.ToInt32(dr["LocationID"]),
-                        Mascot = Convert.ToString(dr["Mascot"]),
-                        Location = new Location(Convert.ToInt32(dr["LocationID"]), Convert.ToString(dr["Venue"]), Convert.ToString(dr["City"]), Convert.ToString(dr["StateProvince"]))
-                        
-                    });
+                    (
+                        Convert.ToInt32(dr["TeamID"]),
+                        Convert.ToInt32(dr["LocationID"]),
+                        Convert.ToString(dr["Name"]),
+                        Convert.ToString(dr["Mascot"]),
+                        new Location(Convert.ToInt32(dr["LocationID"]), Convert.ToString(dr["Venue"]), Convert.ToString(dr["City"]), Convert.ToString(dr["StateProvince"]))
+                    ));
             }
             return teams;
         }

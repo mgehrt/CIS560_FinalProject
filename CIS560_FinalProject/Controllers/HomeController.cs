@@ -66,12 +66,26 @@ namespace CIS560_FinalProject.Controllers
         [HttpGet]
         public ActionResult ViewTournament(int id)
         {
-
+            TeamDbHandler teamdb = new TeamDbHandler();
+            List<Team> teams = teamdb.GetTeams();
             TournamentDbHandler tdb = new TournamentDbHandler();
             ViewBag.TournamentID = id;
             List<Match> matches = tdb.ViewTournament(id);
-            
-            return View(tdb.ViewTournament(id));
+            foreach(Match m in matches)
+            {
+                foreach(Team t in teams)
+                {
+                    if(m.Team1ID == t.TeamID)
+                    {
+                        m.Team1 = t;
+                    }
+                    else if(m.Team2ID == t.TeamID)
+                    {
+                        m.Team2 = t;
+                    }
+                }
+            }
+            return View(matches);
         }
 
         [HttpGet]
@@ -80,6 +94,14 @@ namespace CIS560_FinalProject.Controllers
             TournamentDbHandler tdb = new TournamentDbHandler();
             return View(tdb.GetTournaments().Find(m => m.TournamentID == id));
         }
+
+        [HttpPost]
+        public ActionResult SearchPlayer(string text)
+        {
+            PlayerDbHandler pdb = new PlayerDbHandler();
+            Player p = pdb.SearchPlayer(text);
+        }
+
 
         [HttpPost]
         public ActionResult EditTournament(Tournament t)

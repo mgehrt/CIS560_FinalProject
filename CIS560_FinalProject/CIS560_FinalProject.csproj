@@ -182,7 +182,7 @@
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Team.cs" />
     <Compile Include="Models\Tournament.cs" />
-    <Compile Include="Models\TournamentHandler.cs" />
+    <Compile Include="Models\TournamentDbHandler.cs" />
     <Compile Include="Models\TeamDbHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -242,6 +242,8 @@
     <Content Include="Views\Team\Index.cshtml" />
     <Content Include="Views\Team\CreateTeam.cshtml" />
     <Content Include="Views\Team\ViewTeam.cshtml" />
+    <Content Include="Views\Match\ViewMatch.cshtml" />
+    <Content Include="Views\Home\SearchResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
