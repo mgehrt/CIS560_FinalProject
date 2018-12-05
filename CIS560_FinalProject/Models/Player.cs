@@ -22,14 +22,5 @@ namespace CIS560_FinalProject.Models
 
         public Player() { }
 
-        public Player(int PlayerID, int TeamID, string FirstName, string LastName, int Number, string Team)
-        {
-            this.PlayerID = PlayerID;
-            this.TeamID = TeamID;
-            this.FirstName = FirstName;
-            this.LastName = LastName;
-            this.Number = Number;
-            this.Team = Team;
-        }
     }
 }

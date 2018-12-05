@@ -242,6 +242,7 @@
     <Content Include="Views\Team\Index.cshtml" />
     <Content Include="Views\Team\CreateTeam.cshtml" />
     <Content Include="Views\Team\ViewTeam.cshtml" />
+    <Content Include="Views\Team\UpdateTeam.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
