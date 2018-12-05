@@ -116,7 +116,7 @@ namespace CIS560_FinalProject.Models
         {
             Connection();
             Player Player = new Player();
-            SqlCommand command = new SqlCommand("ViewPlayer", con);
+            SqlCommand command = new SqlCommand("GetPlayer", con);
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.AddWithValue("@PlayerID", id);
             SqlDataAdapter sda = new SqlDataAdapter(command);
@@ -138,10 +138,30 @@ namespace CIS560_FinalProject.Models
                        FirstName = Convert.ToString(dr["FirstName"]),
                        LastName = Convert.ToString(dr["LastName"]),
                        Number = Convert.ToInt32(dr["Number"]),
-                       Team = Convert.ToString(dr["Team"]),
                    };
             }
             return Player;
+        }
+
+        public int SearchPlayer(string text)
+        {
+            Connection();
+            SqlCommand command = new SqlCommand("SearchPlayer", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@SearchString", text);
+            SqlDataAdapter sda = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+
+            con.Open();
+            sda.Fill(dt);
+            con.Close();
+            int i = 1;
+            foreach(DataRow dr in dt.Rows)
+            {
+                 i = Convert.ToInt32(dr["PlayerID"]);
+            }
+
+            return i;
         }
     }
 }

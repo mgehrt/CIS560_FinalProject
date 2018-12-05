@@ -20,6 +20,11 @@ namespace CIS560_FinalProject.Controllers
             return View("ViewMatch", matchup);
         }
         
+        //public ActionResult ViewMatch(int id)
+        //{
+            
+        //}
+
         [HttpGet]
         public ActionResult CreateMatch(int TournamentID)
         {

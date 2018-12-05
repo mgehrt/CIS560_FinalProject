@@ -1,0 +1,37 @@
+﻿@model CIS560_FinalProject.Models.Match
+@{
+    ViewBag.Title = "ViewMatch";
+}
+
+<div class="row">
+    <h5>Viewing @Model.Team1.Name  vs. @Model.Team2.Name  on @Model.Date</h5>
+</div>
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Round</th>
+            <th scope="col">Home Team</th>
+            <th scope="col">Home Score</th>
+            <th scope="col">Away Team</th>
+            <th scope="col">Away Score</th>
+            <th scope="col">Location</th>
+            <th scope="col">Date</th>
+            <th></th>
+        </tr>
+    </thead>
+    
+        <tr>
+            <td>@Model.Round</td>
+            <td>@Model.Team1.Name</td>
+            <td>@Model.Team1Score</td>
+            <td>@Model.Team2.Name</td>
+            <td>@Model.Team2Score</td>
+            <td>@Model.Location.Venue in @Model.Location.City, @Model.Location.StateProvince</td>
+            <td>@Model.Date</td>
+            <td>
+                @Html.ActionLink("Edit", "EditMatch", "MatchControlller", new { id = Model.MatchID }, null)
+            </td>
+        </tr>
+</table>
