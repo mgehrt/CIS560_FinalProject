@@ -99,7 +99,8 @@ namespace CIS560_FinalProject.Controllers
         public ActionResult SearchPlayer(string text)
         {
             PlayerDbHandler pdb = new PlayerDbHandler();
-            Player p = pdb.SearchPlayer(text);
+            int id = pdb.SearchPlayer(text);
+            return RedirectToAction("ViewPlayer", "Player", new { id});
         }
 
 

@@ -15,9 +15,9 @@
 
 <div class="row">
     <h5 class="h5">Search for a player</h5>
-    @Html.BeginForm("SearchPlayer", "SearchPlayer", FormMethod.Post)
+    @using (Html.BeginForm("SearchPlayer", "Home", FormMethod.Post))
     {
-        <input type="search" />
+        <input type="search" name="text" />
         <input type="submit" value="Search" />
     }
 </div>
