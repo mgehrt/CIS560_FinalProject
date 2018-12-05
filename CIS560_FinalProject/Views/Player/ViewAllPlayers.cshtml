@@ -25,7 +25,7 @@
             <td>@item.Number</td>
             <td>@item.Team</td>
             <td>
-                @Html.ActionLink("View", "ViewPlayer", "PlayerController", new { id = item.PlayerID }, null) |
+                @Html.ActionLink("View", "ViewPlayer", "Player", new { id = item.PlayerID }, null) |
                 @Html.ActionLink("Edit", "EditPlayer", "PlayerController", new { id = item.PlayerID }, null) |
                 @Html.ActionLink("Delete", "DeletePlayer", "PlayerController", new { id = item.PlayerID }, null)
             </td>

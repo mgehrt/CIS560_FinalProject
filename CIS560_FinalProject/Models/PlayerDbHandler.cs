@@ -113,35 +113,36 @@ namespace CIS560_FinalProject.Models
             return players;
         }
 
-        public List<Player> ViewPlayer(int id)
+        public Player ViewPlayer(int id)
         {
             Connection();
-            List<Player> Players = new List<Player>();
+            Player Player = new Player();
             SqlCommand command = new SqlCommand("ViewPlayer", con);
             command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@PlayerID", id);
             SqlDataAdapter sda = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
 
-            command.Parameters.AddWithValue("@PlayerID", id);
+            
 
             con.Open();
             sda.Fill(dt);
             con.Close();
-
-
+            //Only one so it's fine
             foreach (DataRow dr in dt.Rows)
             {
-                Players.Add(
+                Player =
                    new Player
                    {
-                       PlayerID = Convert.ToInt32(dr["PlayerID"]),
+                       PlayerID = id,
                        TeamID = Convert.ToInt32(dr["TeamID"]),
                        FirstName = Convert.ToString(dr["FirstName"]),
                        LastName = Convert.ToString(dr["LastName"]),
-                       Number = Convert.ToInt32(dr["Number"])
-                   });
+                       Number = Convert.ToInt32(dr["Number"]),
+                       Team = Convert.ToString(dr["Team"]),
+                   };
             }
-            return Players;
+            return Player;
         }
     }
 }

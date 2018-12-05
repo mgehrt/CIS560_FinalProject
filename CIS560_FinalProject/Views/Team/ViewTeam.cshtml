@@ -30,7 +30,7 @@
                 <td>@item.LastName</td>
                 <td>@item.Number</td>
                 <td>
-                    @Html.ActionLink("View", "ViewTeam", "Team", new { id = item.TeamID }, null) |
+                    @Html.ActionLink("View", "ViewPlayer", "Player", new { id = item.PlayerID }, null) |
                     @Html.ActionLink("Edit", "EditTeam", "Team", new { id = item.TeamID }, null) |
                     @Html.ActionLink("Delete", "DeleteTeam", "Team", new { id = item.TeamID }, null)
                 </td>
