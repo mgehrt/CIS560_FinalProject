@@ -1,4 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].UpdateTournament
+CREATE PROCEDURE [dbo].UpdateTournament
 (
 	@TournamentID INT, 
 	@Name NVARCHAR(MAX),

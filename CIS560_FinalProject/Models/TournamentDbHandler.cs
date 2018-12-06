@@ -11,7 +11,7 @@ namespace CIS560_FinalProject.Models
         private SqlConnection con;
         private void Connection()
         {
-            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TournamentContext;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            string connectionString = @"Data Source=mssql.cs.ksu.edu;Initial Catalog=jrvictor;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             con = new SqlConnection(connectionString);
         }
 
@@ -137,7 +137,6 @@ namespace CIS560_FinalProject.Models
                        Team2ID = Convert.ToInt32(dr["Team2ID"]),
                        LocationID = Convert.ToInt32(dr["LocationID"]),
                        Round = Convert.ToString(dr["Round"]),
-                       Name = Convert.ToString(dr["Name"]),
                        Date = Convert.ToDateTime(dr["Date"]),
                        Team1Score = Convert.ToInt32(dr["Team1Score"]),
                        Team2Score = Convert.ToInt32(dr["Team2Score"]),
