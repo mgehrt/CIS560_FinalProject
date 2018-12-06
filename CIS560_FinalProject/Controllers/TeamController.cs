@@ -32,5 +32,12 @@ namespace CIS560_FinalProject.Controllers
             return View(tbd.ViewTeam(id));
         }
 
+        public ActionResult DeletePlayerFromTeam(int playerid, int teamid)
+        {
+            PlayerDbHandler pdb = new PlayerDbHandler();
+            pdb.DeletePlayerFromTeam(playerid, teamid);
+            return RedirectToAction("ViewTeam", "Team", new { id = teamid } );
+        }
+
     }
 }

@@ -164,5 +164,23 @@ namespace CIS560_FinalProject.Models
 
             return i;
         }
+
+        public bool DeletePlayerFromTeam(int playerid, int teamid)
+        {
+            Connection();
+            SqlCommand command = new SqlCommand("DeletePlayerFromTeam", con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@PlayerID", playerid);
+            command.Parameters.AddWithValue("@TeamID", teamid);
+            SqlDataAdapter sda = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+
+            con.Open();
+            int i = command.ExecuteNonQuery();
+            con.Close();
+
+            if (i > 0) return true;
+            else return false;
+        }
     }
 }
