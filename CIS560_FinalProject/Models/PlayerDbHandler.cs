@@ -98,15 +98,22 @@ namespace CIS560_FinalProject.Models
 
             foreach (DataRow dr in dt.Rows)
             {
+                var team = dr["Team"];
+                var teamid = dr["TeamID"];
+                if (dr["TeamID"] == null)
+                {
+                    teamid = 22;
+                    team = "N/A";
+                }
                 players.Add(
                     new Player
                     {
                         PlayerID = Convert.ToInt32(dr["PlayerID"]),
-                        TeamID = Convert.ToInt32(dr["TeamID"]),
+                        TeamID = Convert.ToInt32(teamid),
                         FirstName = Convert.ToString(dr["FirstName"]),
                         LastName = Convert.ToString(dr["LastName"]),
                         Number = Convert.ToInt32(dr["Number"]),
-                        Team = Convert.ToString(dr["Team"])
+                        Team = Convert.ToString(team)
                     });
             }
             return players;
